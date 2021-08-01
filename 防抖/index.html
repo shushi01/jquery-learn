@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="input" />
+		<script>
+	/* 	function del(delay,value){
+			let timer;
+			clearTimeout(timer)
+			timer = setTimeout(function(){
+				console.log(value);
+			},delay)
+		} */
+	//闭包
+		function del(delay){
+			let timer;
+			return function(e){
+				clearTimeout(timer)
+				timer = setTimeout(function(){
+					console.log(e);
+				},delay)
+			}
+		}
+			var dtt=del(1000);
+			input.addEventListener("keyup",function(e){
+				dtt(e.target.value)
+			})
+		</script>
+	</body>
+	
+</html>
